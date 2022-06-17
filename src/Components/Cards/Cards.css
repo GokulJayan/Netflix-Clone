@@ -1,0 +1,21 @@
+.row{
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #fff;
+}
+
+.cards{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.cards::-webkit-scrollbar{
+    display: none;
+}
+
+.card{
+    max-height: 500px;
+    margin-right: 10px;
+}
