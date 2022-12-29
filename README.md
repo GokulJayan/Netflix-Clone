@@ -10,7 +10,7 @@ Website: https://netlone.netlify.app/
 
 ![image](https://user-images.githubusercontent.com/72083631/209926277-d5061440-6f18-4bde-8a82-435655372c09.png)
 
-3. Sign In Page
+3. Sign In Page (Dummy)
 ![image](https://user-images.githubusercontent.com/72083631/209926211-b918eeec-ddec-408d-8f5d-8612c57e5b8c.png)
 
 
