@@ -1,17 +1,25 @@
 Deployment: [https://netlone.netlify.app/](https://netflone.netlify.app/)
 
 1. Dynamic Banner with ytb trailer (5 sec interval)
-![image](https://user-images.githubusercontent.com/72083631/209926303-6a52557b-1e4c-4aaf-b7e6-63b39e67f413.png)
-![image](https://user-images.githubusercontent.com/72083631/209926343-d2d97ce2-91c2-41e1-8614-7fe82e191a66.png)
-![image](https://user-images.githubusercontent.com/72083631/209926400-a27a1268-2170-42f5-8588-ff40912392e9.png)
+![image](https://github.com/GokulJayan/Netflix-Clone/assets/72083631/68331af7-27f0-4d1c-82cf-e73fa81433e5)
+
+
 
 On clicking play button, you'll be redirected to youtube for watching the respective banner movie's/show's trailer.
 
+![image](https://github.com/GokulJayan/Netflix-Clone/assets/72083631/748d12ab-1a06-468f-a205-e6a892c4b58c)
+
+
+
+
 2. Cards with ytb trailer
 
-![image](https://user-images.githubusercontent.com/72083631/209926277-d5061440-6f18-4bde-8a82-435655372c09.png)
+![image](https://github.com/GokulJayan/Netflix-Clone/assets/72083631/9e334193-562e-41a0-a1b6-7ccdb696c017)
 
 On clicking a card, you'll be redirected to youtube for watching the respective card movie's/show's trailer.
+
+![image](https://github.com/GokulJayan/Netflix-Clone/assets/72083631/4f147edb-1d9e-4745-b4f9-0d30a4fc30c1)
+
 
 3. Sign In Page (Dummy)
 ![image](https://user-images.githubusercontent.com/72083631/209926211-b918eeec-ddec-408d-8f5d-8612c57e5b8c.png)
