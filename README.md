@@ -25,3 +25,4 @@ On clicking a card, you'll be redirected to youtube for watching the respective 
 ![image](https://user-images.githubusercontent.com/72083631/209926211-b918eeec-ddec-408d-8f5d-8612c57e5b8c.png)
 
 
+PS: As the trailer is being played with the help of API, only a limited number of calls are permitted in a day. 
