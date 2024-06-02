@@ -1,4 +1,4 @@
-Deployment: https://netflixlone.netlify.app/
+Deployment: https://watchzoneclone.netlify.app/
 
 1. Dynamic Banner with ytb trailer (5 sec interval)
 ![image](https://github.com/GokulJayan/Netflix-Clone/assets/72083631/68331af7-27f0-4d1c-82cf-e73fa81433e5)
