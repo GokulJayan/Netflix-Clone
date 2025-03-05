@@ -1,0 +1,53 @@
+.outer{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image: url("https://user-images.githubusercontent.com/33485020/108069438-5ee79d80-7089-11eb-8264-08fdda7e0d11.jpg");
+    color: white;   
+}
+.login{
+    margin-top: 100px;
+    width: 30%;
+    padding: 50px;
+    background-color: black;
+    margin-left: 550px;
+    border-radius: 5px;
+}
+
+input{
+    background-color: rgb(255, 255, 255);
+    width: 350px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.signin{
+    color: white;
+    background-color: rgb(200, 20, 20);
+    width: 350px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .login {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+    }
+    
+    input {
+      width: 100%;
+    }
+    
+    .signin {
+      width: 100%;
+    }
+  }

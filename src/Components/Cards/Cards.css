@@ -1,21 +1,46 @@
 .row{
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 20px;
     color: #fff;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 98.723%
 }
 
 .cards{
     display: flex;
     padding: 20px;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    margin-bottom: 25px;
 }
 
-.cards::-webkit-scrollbar{
-    display: none;
+.cardDiv:hover{
+    cursor: pointer;
 }
+
+
 
 .card{
-    max-height: 500px;
+    max-height: 200px;
+    max-width: 300px;
     margin-right: 10px;
 }
+
+
+
+.cardTitle{
+    margin: 2%;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 5px;
+  }
+  
+  
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+    border-radius: 10px;
+  }

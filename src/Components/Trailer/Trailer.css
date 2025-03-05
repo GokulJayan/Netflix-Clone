@@ -1,0 +1,25 @@
+.trailerTitle{
+    margin-top: 1%;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 0.8rem;
+}
+
+.videoDiv{
+    display: flex;
+    justify-content: center;
+
+}
+
+.titleDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.imgNet{
+    margin-top: 1%;
+    width: 70px;
+    height: 70px;
+}
