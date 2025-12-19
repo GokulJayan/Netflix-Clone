@@ -5,22 +5,34 @@ import axios from "../../axios";
 
 function Banner() {
   const [movie, setMovie] = useState();
+  const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
+    axios
+      .get(`trending/all/week?api_key=${API_KEY}&language=en-US`)
+      .then((response) => {
+        setTrendingMovies(response.data.results);
+        let i = response.data.results.length - 1;
+        let j = Math.floor(Math.random() * (i + 1));
+        while (typeof response.data.results[j].title === "undefined") {
+          j = Math.floor(Math.random() * (i + 1));
+        }
+        setMovie(response.data.results[j]);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (trendingMovies.length === 0) return;
     const interval = setInterval(() => {
-      axios
-        .get(`trending/all/week?api_key=${API_KEY}&language=en-US`)
-        .then((response) => {
-          let i = response.data.results.length - 1;
-          let j = Math.floor(Math.random() * (i + 1));
-          while (typeof response.data.results[j].title === "undefined") {
-            j = Math.floor(Math.random() * (i + 1));
-          }
-          setMovie(response.data.results[j]);
-        });
+      let i = trendingMovies.length - 1;
+      let j = Math.floor(Math.random() * (i + 1));
+      while (typeof trendingMovies[j].title === "undefined") {
+        j = Math.floor(Math.random() * (i + 1));
+      }
+      setMovie(trendingMovies[j]);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [trendingMovies]);
 
   const handleClick = async () => {
     if (!movie) return;
