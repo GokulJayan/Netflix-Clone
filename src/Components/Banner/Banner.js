@@ -5,7 +5,6 @@ import axios from "../../axios";
 
 function Banner() {
   const [movie, setMovie] = useState();
-  const [videoId, setVideoId] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,22 +17,25 @@ function Banner() {
             j = Math.floor(Math.random() * (i + 1));
           }
           setMovie(response.data.results[j]);
-
-          fetch(
-            `https://www.googleapis.com/youtube/v3/search?key=${API_KEY_2}&q=${
-              response.data.results[j].title + " movie trailer"
-            }&type=video&part=snippet&maxResults=1`
-          )
-            .then((response) => response.json())
-            .then((data) => setVideoId(data.items[0].id.videoId))
-            .catch((error) => console.log(error));
         });
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const handleClick = () => {
-    window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+  const handleClick = async () => {
+    if (!movie) return;
+    try {
+      const response = await fetch(
+        `https://www.googleapis.com/youtube/v3/search?key=${API_KEY_2}&q=${
+          movie.title + " movie trailer"
+        }&type=video&part=snippet&maxResults=1`
+      );
+      const data = await response.json();
+      const videoId = data.items[0].id.videoId;
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
