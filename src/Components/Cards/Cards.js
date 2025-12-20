@@ -1,37 +1,63 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import './Cards.css'
 import { imageUrl } from '../../Constants/constants'
 import { getMoviesByCategory } from '../../Services/tmdb'
+import { getTrailerVideoId } from '../../Services/youtube'
 
-function Cards(props) {
-    const [movies, setMovies] = useState([])
+function Cards({ path, genre }) {
+  const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
-        getMoviesByCategory(props.path).then((response)=>{
-        setMovies(response.data.results)
-        })
-    }, [props.path])
+  useEffect(() => {
+    getMoviesByCategory(path).then((response) => {
+      setMovies(response.data.results || []);
+    });
+  }, [path]);
 
-    const handleClick = (title) => {
-        window.open(`https://www.youtube.com/results?search_query=${title} trailer`, '_blank');
-    };
+  const handleClick = async (movie) => {
+    if (!movie) return;
 
+    const title = movie.title || movie.name;
+    if (!title) return;
 
-    return (
-        <div className="row">
-            <h3>{props.genre}</h3>
-            <div className='cards'>
-                {movies.map((obj)=>
-                    <div className='cardDiv'>
-                        {/* <Link style={{ textDecoration: 'none' }} className='trailerLink' to={obj && obj.title ? `/trailer?title=${obj.title}` : '/'} target="_blank"> */}
-                        <img onClick={() => handleClick(obj.title)} className='card' alt='card' src={`${imageUrl+obj.backdrop_path}`}/>
-                        <h6 onClick={() => handleClick(obj.title)} className='cardTitle'>{`${obj.title}`}</h6>
-                        {/* </Link> */}
-                    </div>
-                )}
-            </div>
-        </div>
-    )
+    try {
+      const videoId = await getTrailerVideoId(`${title} movie trailer`);
+      if (videoId) {
+        window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <div className="row">
+      <h3>{genre}</h3>
+      <div className="cards">
+        {movies.map((movie) => {
+          const title = movie.title || movie.name;
+
+          return (
+            movie.backdrop_path && (
+              <div className="cardDiv" key={movie.id}>
+                <img
+                  onClick={() => handleClick(movie)}
+                  className="card"
+                  alt={title}
+                  src={imageUrl + movie.backdrop_path}
+                />
+                <h6
+                  onClick={() => handleClick(movie)}
+                  className="cardTitle"
+                >
+                  {title}
+                </h6>
+              </div>
+            )
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
-export default Cards
+export default Cards;
