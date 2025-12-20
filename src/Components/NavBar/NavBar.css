@@ -21,7 +21,8 @@
     font-size: 15px;
     font-weight: 500;
     height: 30px;
-    border-radius: 4px;
+    border: 1px solid rgb(200, 20, 20);
+    border-radius: 1px;
     color: white;
     background-color: rgb(200, 20, 20);
 }
