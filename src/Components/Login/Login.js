@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import './Login.css'
 
 function Login() {
+  // eslint-disable-next-line no-unused-vars
   const[user, setUser]=useState("")
+  // eslint-disable-next-line no-unused-vars
   const[pass, setPass]=useState("")
   return (
     <div className='outer'>

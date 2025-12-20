@@ -33,7 +33,7 @@ function Trailer() {
       <div className='titleDiv'>
         
         <h1 className='trailerTitle'>{title}</h1>
-        <img className='imgNet' src="/images/icon.png" />
+        <img className='imgNet' src="/images/icon.png" alt="Netflix icon" />
       </div>
         <div className='videoDiv'>
             <YouTube videoId={videoId} opts={opts} />

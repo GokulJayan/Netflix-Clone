@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import './Cards.css'
 import axios from '../../axios'
-import { API_KEY, imageUrl, API_KEY_2 } from '../../Constants/constants'
-import { Link } from 'react-router-dom'
+import { imageUrl } from '../../Constants/constants'
 
 function Cards(props) {
     const [movies, setMovies] = useState([])
-    const [videoId, setVideoId] = useState(null);
 
     useEffect(() => {
         axios.get(props.path).then((response)=>{
         setMovies(response.data.results)
         })
-    }, [])
+    }, [props.path])
 
     const handleClick = (title) => {
         window.open(`https://www.youtube.com/results?search_query=${title} trailer`, '_blank');
