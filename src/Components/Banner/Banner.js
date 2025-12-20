@@ -8,28 +8,29 @@ function Banner() {
   const [movie, setMovie] = useState();
   const [trendingMovies, setTrendingMovies] = useState([]);
 
+  const getRandomMovie = (movies) => {
+    if (movies.length === 0) return null;
+    let i = movies.length - 1;
+    let j = Math.floor(Math.random() * (i + 1));
+    while (typeof movies[j].title === "undefined") {
+      j = Math.floor(Math.random() * (i + 1));
+    }
+    return movies[j];
+  };
+
   useEffect(() => {
     getTrendingMovies()
       .then((response) => {
-        setTrendingMovies(response.data.results);
-        let i = response.data.results.length - 1;
-        let j = Math.floor(Math.random() * (i + 1));
-        while (typeof response.data.results[j].title === "undefined") {
-          j = Math.floor(Math.random() * (i + 1));
-        }
-        setMovie(response.data.results[j]);
+        const movies = response.data.results;
+        setTrendingMovies(movies);
+        setMovie(getRandomMovie(movies));
       });
   }, []);
 
   useEffect(() => {
     if (trendingMovies.length === 0) return;
     const interval = setInterval(() => {
-      let i = trendingMovies.length - 1;
-      let j = Math.floor(Math.random() * (i + 1));
-      while (typeof trendingMovies[j].title === "undefined") {
-        j = Math.floor(Math.random() * (i + 1));
-      }
-      setMovie(trendingMovies[j]);
+      setMovie(getRandomMovie(trendingMovies));
     }, 5000);
     return () => clearInterval(interval);
   }, [trendingMovies]);
