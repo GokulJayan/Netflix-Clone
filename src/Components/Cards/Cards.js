@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './Cards.css'
 import { imageUrl } from '../../Constants/constants'
-import { getMoviesByCategory } from '../../services/tmdb'
+import { getMoviesByCategory } from '../../Services/tmdb'
 
 function Cards(props) {
     const [movies, setMovies] = useState([])

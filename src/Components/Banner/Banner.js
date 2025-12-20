@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { imageUrl } from "../../Constants/constants";
 import "./Banner.css";
-import { getTrendingMovies } from "../../services/tmdb";
-import { getTrailerVideoId } from "../../services/youtube";
+import { getTrendingMovies } from "../../Services/tmdb";
+import { getTrailerVideoId } from "../../Services/youtube";
 
 function Banner() {
   const [movie, setMovie] = useState();

@@ -3,7 +3,7 @@ import './Trailer.css'
 import { useLocation } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import { useState,useEffect } from 'react';
-import { getTrailerVideoId } from '../../services/youtube';
+import { getTrailerVideoId } from '../../Services/youtube';
 
 function Trailer() {
   const [videoId, setVideoId] = useState(null);
