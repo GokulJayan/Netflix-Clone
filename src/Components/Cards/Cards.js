@@ -1,28 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import './Cards.css'
-import axios from '../../axios'
 import { imageUrl } from '../../Constants/constants'
+import { getMoviesByCategory } from '../../services/tmdb'
 
 function Cards(props) {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
-        axios.get(props.path).then((response)=>{
+        getMoviesByCategory(props.path).then((response)=>{
         setMovies(response.data.results)
         })
     }, [props.path])
 
     const handleClick = (title) => {
         window.open(`https://www.youtube.com/results?search_query=${title} trailer`, '_blank');
-
-        // fetch(
-        //     `https://www.googleapis.com/youtube/v3/search?key=${API_KEY_2}&q=${title + " movie trailer"}&type=video&part=snippet&maxResults=1`
-        //   )
-        //   .then((response) => response.json())
-        //   .then((data) => setVideoId(data.items[0].id.videoId))
-        //   .catch((error) => console.log(error));
-        
-        // window.open(`https://www.youtube.com/watch?v=${videoId}`,"_blank");
     };
 
 

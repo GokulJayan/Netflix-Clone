@@ -3,17 +3,22 @@ import './Trailer.css'
 import { useLocation } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import { useState,useEffect } from 'react';
+import { getTrailerVideoId } from '../../services/youtube';
 
 function Trailer() {
   const [videoId, setVideoId] = useState(null);
   const search = useLocation().search;
   const title = new URLSearchParams(search).get('title');
-  const API_KEY="AIzaSyB6-wcQ_dkj0Jf7bfrQoZZeO4mI34qu2nI"
   useEffect(() => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${title+' movie trailer'}&type=video&part=snippet&maxResults=1`)
-      .then(response => response.json())
-      .then(data => setVideoId(data.items[0].id.videoId))
-      .catch(error => console.log(error));
+    const fetchVideo = async () => {
+      try {
+        const id = await getTrailerVideoId(`${title} movie trailer`);
+        setVideoId(id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (title) fetchVideo();
   }, [title]);
 
   if (!videoId) {

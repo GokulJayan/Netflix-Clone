@@ -6,7 +6,7 @@ import Cards from './Components/Cards/Cards';
 import Login from './Components/Login/Login'
 import Trailer from './Components/Trailer/Trailer';
 import {Route,Routes} from 'react-router-dom'
-import { API_KEY} from './Constants/constants'
+import { TMDB_API_KEY} from './Constants/constants'
 
 
 
@@ -17,11 +17,11 @@ function App() {
       <Route path='/' element={ <div>
         <NavBar/> 
         <Banner/>
-        <Cards genre='Comedy' path={`discover/movie?api_key=${API_KEY}&with_genres=35`}/>
-        <Cards genre='Horror' path={`discover/movie?api_key=${API_KEY}&with_genres=27`}/>
-        <Cards genre='Action' path={`discover/movie?api_key=${API_KEY}&with_genres=28`}/>
-        <Cards genre='War' path={`discover/movie?api_key=${API_KEY}&with_genres=10752`}/>
-        <Cards genre='Western' path={`discover/movie?api_key=${API_KEY}&with_genres=37`}/>
+        <Cards genre='Comedy' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=35`}/>
+        <Cards genre='Horror' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=27`}/>
+        <Cards genre='Action' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=28`}/>
+        <Cards genre='War' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=10752`}/>
+        <Cards genre='Western' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=37`}/>
       </div>}/>
 
       <Route path='/login' element={<Login/>}/>     
