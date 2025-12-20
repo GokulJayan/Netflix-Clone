@@ -6,7 +6,7 @@ import Cards from './Components/Cards/Cards';
 import Login from './Components/Login/Login'
 import Trailer from './Components/Trailer/Trailer';
 import {Route,Routes} from 'react-router-dom'
-import { API_KEY, imageUrl } from './Constants/constants'
+import { API_KEY} from './Constants/constants'
 
 
 
