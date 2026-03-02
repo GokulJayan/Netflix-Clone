@@ -18,9 +18,10 @@ function App() {
       <Route path='/' element={ <div>
         <NavBar/> 
         <Banner/>
-        <Cards genre='Comedy' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=35`}/>
-        <Cards genre='Horror' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=27`}/>
         <Cards genre='Action' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=28`}/>
+        <Cards genre='Comedy' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=35`}/>
+        <Cards genre='Fantasy' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=14`}/>
+        <Cards genre='Horror' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=27`}/>
         <Cards genre='War' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=10752`}/>
         <Cards genre='Western' path={`discover/movie?api_key=${TMDB_API_KEY}&with_genres=37`}/>
         <Footer />
