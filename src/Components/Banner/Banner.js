@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { imageUrl } from "../../Constants/constants";
 import "./Banner.css";
 import { getTrendingMovies } from "../../Services/tmdb";
 import { getTrailerVideoId } from "../../Services/youtube";
+import { LoadingContext } from "../../Contexts/LoadingContext";
 
 function Banner() {
   const [movie, setMovie] = useState();
@@ -35,8 +36,11 @@ function Banner() {
     return () => clearInterval(interval);
   }, [trendingMovies]);
 
+  const { setLoading } = useContext(LoadingContext);
+
   const handleClick = async () => {
     if (!movie) return;
+    setLoading(true);
     try {
       const videoId = await getTrailerVideoId(`${movie.title} movie trailer`);
       if (videoId) {
@@ -44,6 +48,8 @@ function Banner() {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 

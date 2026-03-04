@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './Cards.css'
 import { imageUrl } from '../../Constants/constants'
 import { getMoviesByCategory } from '../../Services/tmdb'
 import { getTrailerVideoId } from '../../Services/youtube'
+import { LoadingContext } from '../../Contexts/LoadingContext'
 
 function Cards({ path, genre }) {
   const [movies, setMovies] = useState([]);
@@ -13,12 +14,15 @@ function Cards({ path, genre }) {
     });
   }, [path]);
 
+  const { setLoading } = useContext(LoadingContext);
+
   const handleClick = async (movie) => {
     if (!movie) return;
 
     const title = movie.title || movie.name;
     if (!title) return;
 
+    setLoading(true);
     try {
       const videoId = await getTrailerVideoId(`${title} movie trailer`);
       if (videoId) {
@@ -26,6 +30,8 @@ function Cards({ path, genre }) {
       }
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
